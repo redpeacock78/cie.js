@@ -1,4 +1,5 @@
 # `cie.js`
+[![Maintainability](https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability)](https://codeclimate.com/github/redpeacock78/cie.js/maintainability) [![codecov](https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V)](https://codecov.io/gh/redpeacock78/cie.js)  
 Node.js wrapper around [`CIE.sh`](https://github.com/redpeacock78/CIE.sh).
 
 ## 📃 About
