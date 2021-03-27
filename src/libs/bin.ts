@@ -8,7 +8,10 @@ interface from_root {
 }
 const bin_path: bin_path = (): string => {
   const from_root: from_root = (parts: string): string => {
-    return path.join(path.resolve(__dirname, "../../libs/CIE.sh/bin"), parts);
+    return path.join(
+      path.resolve(__dirname, "../../libs/CIE.sh/libexec"),
+      parts
+    );
   };
   return from_root("lab");
 };
