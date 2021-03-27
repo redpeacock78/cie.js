@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2145,SC2124
+# shellcheck source=/dev/null
+
+abs_path="$(builtin cd "$(dirname "${0}")" && builtin pwd)"
+declare abs_path
+source "${abs_path%/*}/libexec/lab-exec-calc"
+source "${abs_path%/*}/libexec/lab-judge-args"
+
+function dE76() {
+    #Reference: https://ja.wikipedia.org/wiki/%E8%89%B2%E5%B7%AE#CIE76_(delta_E76)
+    {
+        judge "${@}"
+
+        #* 基準色
+        readonly La=${@:1:1}
+        readonly aa=${@:2:1}
+        readonly ba=${@:3:1}
+
+        #* 比較色
+        readonly Lb=${@:4:1}
+        readonly ab=${@:5:1}
+        readonly bb=${@:6:1}
+
+        Lab=$(calc "(${Lb/L*=/} - ${La/L*=/}) ^ 2")
+        readonly Lab
+        aab=$(calc "(${ab/a*=/} - ${aa/a*=/}) ^ 2")
+        readonly aab
+        bab=$(calc "(${bb/b*=/} - ${ba/b*=/}) ^ 2")
+        readonly bab
+
+        calc "sqrt(${Lab} + ${aab} + ${bab})" | awk '{printf("%.4f\n",$1)}'
+    }
+}

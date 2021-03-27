@@ -1,0 +1,48 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: Setup
+        run: |
+          sudo add-apt-repository ppa:duggan/bats
+          sudo apt-get update
+          sudo apt-get install bats binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev
+          wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz
+          tar xzf master.tar.gz
+          cd kcov-master
+          mkdir build
+          cd build
+          cmake -DCMAKE_INSTALL_PREFIX=${HOME}/kcov ..
+          make
+          make install
+      - name: Run Test
+        run: |
+          bats --tap test
+      - name: install CIE.sh
+        run:
+          sudo ./install.sh ${PREFIX:-/usr/local}
+      - name: Show version
+        run: |
+          lab --version
+      - name: Show help
+        run: |
+          lab --help
+      - name: Run
+        run: |
+          lab -dE76 50 50 0 40 50 0
+          lab -dE94 -g 50 50 0 40 50 0 
+          lab -dE94 -t 50 50 0 40 50 0
+          lab -dE00 50 50 0 40 50 0
+      - name: upload coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

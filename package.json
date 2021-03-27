@@ -1,0 +1,50 @@
+{
+  "name": "cie.js",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "description": "Node wrapper around CIE.sh.",
+  "author": "redpeacock78",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "cie",
+    "lab",
+    "color",
+    "delta e",
+    "cie76",
+    "cie94",
+    "ciede2000",
+    "color difference"
+  ],
+  "bin": {
+    "cie-js": "./bin/cli.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "commander": "^7.2.0",
+    "spawn-promise": "^0.1.8"
+  },
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "lint-fix": "eslint --fix src/**/*.ts",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "build": "yarn lint-fix && tsc -p tsconfig.json",
+    "prepublishOnly": "yarn build"
+  }
+}

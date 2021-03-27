@@ -1,0 +1,10 @@
+.git*
+.npm*
+.eslint*
+.github/
+src/
+test/
+coverage/
+release.sh
+jest.config.js
+tsconfig.json

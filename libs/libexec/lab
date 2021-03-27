@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2145,SC2124,SC2199,SC2068
+# shellcheck source=/dev/null
+#
+# @(#)lab 0.0.1
+# @(#)(c) 2020 redpeacock78
+# @(#)MIT License is applied to this script.
+# @(#)
+########################################
+# @(#)Derives the color difference using the method defined by LAB Delta E (CIE76, CIE94, CIEDE2000).
+# @(#)Arguments:
+# @(#)  -dE76
+# @(#)  -dE84 [-g, -t]
+# @(#)  -dE00
+# @(#)  -v, --version
+# @(#)  -h, --help
+# @(#)Returns:
+# @(#)  None
+# @(#)Depends:
+# @(#)  SHIFT
+# @(#)  GREP
+# @(#)  BASH
+# @(#)  ECHO
+# @(#)  AWK
+# @(#)  SED
+# @(#)  CAT
+# @(#)  BC
+########################################
+
+abs_path="$(builtin cd "$(dirname "${0}")" && builtin pwd)"
+declare abs_path
+source "${abs_path%/*}/libexec/lab-exec-dE76"
+source "${abs_path%/*}/libexec/lab-exec-dE94"
+source "${abs_path%/*}/libexec/lab-exec-dE00"
+source "${abs_path%/*}/libexec/lab-error"
+
+####MESSAGES####
+###VERSION###
+function version() {
+    {
+        cat <<EOS
+${0##*/} 0.0.1
+Copyright (C) 2020 redpeacock78
+License MIT.
+THIS IS FREE SOFTWARE.
+YOU ARE FREE TO CHANGE AND REDISTRIBUTE IT.
+THERE IS NO WARRANTY, TO THE EXTENT PERMITTED BY LAW.
+Written by redpeacock78 <https://github.com/redpeacock78>.
+EOS
+        exit 0
+    }
+}
+###SHOW_USAGE###
+function usage() {
+    {
+        cat <<EOS >&2
+Usage: ${0##*/} [OPTION] L1 a1 b1 L2 a2 b2
+
+Derives the color difference using the method defined
+by LAB Delta E (CIE76, CIE94, CIEDE2000).
+
+Option:
+  -dE76            Use the CIE 1976 color difference formula.
+  -dE94 [-g, -t]   Use the CIE 1994 color difference formula.
+                   (-g: kl=1,k1=0.045,k2=0.015 / -t: kl=2,k1=0.048,k2=0,014)
+  -dE00            Use the CIEDE2000 color difference formula.
+  -v, --version    Show version and info.
+  -h, --help       Show usage.
+
+TL;DR
+  $ ${0##*/} -dE76 '50 50 0 40 50 0'
+  $ ${0##*/} -dE94 -g '50 50 0 40 50 0'
+  $ ${0##*/} -dE00 '50 50 0 40 50 0'
+EOS
+        exit 0
+    }
+}
+
+####MAIN_PROCESSING####
+if [[ ${@:1:1} == "-dE76" ]]; then
+    shift && dE76 ${@}
+elif [[ ${@:1:1} == "-dE94" ]]; then
+    shift && dE94 ${@}
+elif [[ ${@:1:1} == "-dE00" ]]; then
+    shift && dE00 ${@}
+elif [[ ${@:1:1} == "-v" ]] ||
+    [[ ${@:1:1} == "--version" ]]; then
+    version
+elif [[ ${@:1:1} == "-h" ]] ||
+    [[ ${@:1:1} == "--help" ]]; then
+    usage
+elif [[ -z ${@} ]] ||
+    [[ ${@:1:1} != "-h" ]] &&
+    [[ ${@:1:1} != "--help" ]] &&
+    [[ ${@:1:1} != "-v" ]] &&
+    [[ ${@:1:1} != "--version" ]] &&
+    [[ ${@:1:1} != "-dE76" ]] &&
+    [[ ${@:1:1} != "-dE94" ]] &&
+    [[ ${@:1:1} != "-dE00" ]]; then
+    error
+fi

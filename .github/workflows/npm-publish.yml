@@ -1,0 +1,47 @@
+name: Npm Publish
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "!*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SUB_MODULE_TOKEN }}
+          submodules: true
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: "https://registry.npmjs.org/"
+      - name: Install can-npm-publish and Dependencies
+        run: |
+          yarn add -D can-npm-publish && \
+          yarn install --frozen-lockfile
+      - name: Check version and Add Tag
+        run: |
+          ./release.sh && \
+          yarn remove can-npm-publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          COMMIT: ${{ github.sha }}
+      - name: Run Test
+        run: yarn test:coverage
+      - name: Run Build
+        run: yarn build
+      - name: Run Release
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
