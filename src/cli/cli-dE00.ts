@@ -1,5 +1,6 @@
 import * as lab from "../main";
 import { Command } from "commander";
+import { color } from "../../@types/main";
 
 const command = new Command();
 command
@@ -12,19 +13,19 @@ const args: string[] = process.argv.slice(2);
 (async (): Promise<void> => {
   if (args.length === 6) {
     try {
-      const color_1 = {
+      const color_1: color = {
         L: Number(args[0]),
         a: Number(args[1]),
         b: Number(args[2]),
       };
-      const color_2 = {
+      const color_2: color = {
         L: Number(args[3]),
         a: Number(args[4]),
         b: Number(args[5]),
       };
       await lab
         .dE00(color_1, color_2)
-        .then((result): void => {
+        .then((result: string): void => {
           console.log(result);
         })
         .catch((): void => {
