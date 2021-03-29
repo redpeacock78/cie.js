@@ -16,11 +16,15 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SUB_MODULE_TOKEN }}
           submodules: true
+      - name: Update submodule
+        run: git submodule update --remote ./libs/
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
+      - name: CIE.sh Check
+        run: ./libs/CIE.sh/bin/lab -v 
       - name: Install can-npm-publish and Dependencies
         run: |
           yarn add -D can-npm-publish && \
