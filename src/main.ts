@@ -14,8 +14,9 @@ const lab: _lab = {
         const args: (string | number)[] = ["-dE76", L1, a1, b1, L2, a2, b2];
         return await spawn(bin, args).then((buffer: Buffer): string => {
             return buffer.toString().replace(/\n$/, '');
-        }).catch((): never => {
-            throw new Error;
+        }).catch((error: Object): never => {
+            const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
+            throw new Error(process);
         });
     },
     dE94: {
@@ -29,8 +30,9 @@ const lab: _lab = {
             const args: (string | number)[] = ["-dE94", "-t", L1, a1, b1, L2, a2, b2];
             return await spawn(bin, args).then((buffer: Buffer): string => {
                 return buffer.toString().replace(/\n$/, '');
-            }).catch((): never => {
-                throw new Error;
+            }).catch((error: Object): never => {
+                const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
+                throw new Error(process);
             });
         },
         graphicArts: async (color_1: color, color_2: color): Promise<string> => {
@@ -43,8 +45,9 @@ const lab: _lab = {
             const args: (string | number)[] = ["-dE94", "-g", L1, a1, b1, L2, a2, b2];
             return await spawn(bin, args).then((buffer: Buffer): string => {
                 return buffer.toString().replace(/\n$/, '');
-            }).catch((): never => {
-                throw new Error;
+            }).catch((error: Object): never => {
+                const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
+                throw new Error(process);
             });
         }
     },
@@ -58,8 +61,9 @@ const lab: _lab = {
         const args: (string | number)[] = ["-dE00", L1, a1, b1, L2, a2, b2];
         return await spawn(bin, args).then((buffer: Buffer): string => {
             return buffer.toString().replace(/\n$/, '');
-        }).catch((): never => {
-            throw new Error;
+        }).catch((error: Object): never => {
+            const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
+            throw new Error(process);
         });
     }
 };
