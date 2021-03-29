@@ -30,7 +30,13 @@ command
     );
   })
   .version(
-    `cie-js ${packageJson.version}`,
+    `cie-js ${packageJson.version}
+Copyright (C) 2021 redpeacock78
+License MIT.
+THIS IS FREE SOFTWARE.
+YOU ARE FREE TO CHANGE AND REDISTRIBUTE IT.
+THERE IS NO WARRANTY, TO THE EXTENT PERMITTED BY LAW.
+Written by redpeacock78 <https://github.com/redpeacock78>.`,
     "-v, --version",
     "Output the version number"
   )
