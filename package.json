@@ -1,9 +1,10 @@
 {
   "name": "cie.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
+  "repository": "https://github.com/redpeacock78/cie.js",
   "author": "redpeacock78",
   "license": "MIT",
   "keywords": [
