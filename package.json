@@ -1,12 +1,15 @@
 {
   "name": "cie.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
   "repository": "https://github.com/redpeacock78/cie.js",
   "author": "redpeacock78",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redpeacock78/cie.js/issues"
+  },
   "keywords": [
     "cli",
     "cie",
