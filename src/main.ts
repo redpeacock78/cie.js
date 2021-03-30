@@ -1,3 +1,4 @@
+import * as err from "./libs/error";
 import * as bin_path from "./libs/bin";
 import * as spawn from "spawn-promise";
 import { _lab, color } from "../@types/main";
@@ -15,8 +16,7 @@ const lab: _lab = {
         return await spawn(bin, args).then((buffer: Buffer): string => {
             return buffer.toString().replace(/\n$/, '');
         }).catch((error: Object): never => {
-            const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
-            throw new Error(process);
+            throw err(error);
         });
     },
     dE94: {
@@ -31,8 +31,7 @@ const lab: _lab = {
             return await spawn(bin, args).then((buffer: Buffer): string => {
                 return buffer.toString().replace(/\n$/, '');
             }).catch((error: Object): never => {
-                const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
-                throw new Error(process);
+                throw err(error);
             });
         },
         graphicArts: async (color_1: color, color_2: color): Promise<string> => {
@@ -46,8 +45,7 @@ const lab: _lab = {
             return await spawn(bin, args).then((buffer: Buffer): string => {
                 return buffer.toString().replace(/\n$/, '');
             }).catch((error: Object): never => {
-                const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
-                throw new Error(process);
+                throw err(error);
             });
         }
     },
@@ -62,8 +60,7 @@ const lab: _lab = {
         return await spawn(bin, args).then((buffer: Buffer): string => {
             return buffer.toString().replace(/\n$/, '');
         }).catch((error: Object): never => {
-            const process: string = JSON.parse(error.toString().replace(/^Error: /, '')).process;
-            throw new Error(process);
+            throw err(error);
         });
     }
 };
