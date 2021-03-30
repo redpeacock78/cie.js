@@ -2,10 +2,11 @@
   "files": [
     "./src/main.ts",
     "./src/libs/bin.ts",
-    "src/cli/cli.ts",
-    "src/cli/cli-dE76.ts",
-    "src/cli/cli-dE94.ts",
-    "src/cli/cli-dE00.ts"
+    "./src/libs/error.ts",
+    "./src/cli/cli.ts",
+    "./src/cli/cli-dE76.ts",
+    "./src/cli/cli-dE94.ts",
+    "./src/cli/cli-dE00.ts"
   ],
   "compilerOptions": {
     "outDir": "dist/",
