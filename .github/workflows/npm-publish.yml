@@ -25,14 +25,8 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
       - name: CIE.sh Check
         run: ./libs/CIE.sh/bin/lab -v 
-      - name: Install can-npm-publish and Dependencies
-        run: |
-          yarn add -D can-npm-publish && \
-          yarn install --frozen-lockfile
       - name: Check version and Add Tag
-        run: |
-          ./release.sh && \
-          yarn remove can-npm-publish
+        run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
