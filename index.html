@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>cie.js - v1.0.5</title>
+	<meta name="description" content="Documentation for cie.js - v1.0.5">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">cie.js - v1.0.5</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>cie.js - v1.0.5</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#ciejs" id="ciejs" style="color: inherit; text-decoration: none;">
+					<h1><code>cie.js</code></h1>
+				</a>
+				<p><img src="https://img.shields.io/github/license/redpeacock78/cie.js" alt="GitHub"> <img src="https://img.shields.io/npm/v/cie.js" alt="npm"> <img src="https://img.shields.io/npm/types/cie.js" alt="npm type definitions"> <a href="https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml"><img src="https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml/badge.svg" alt="Npm Publish"></a> <a href="https://codeclimate.com/github/redpeacock78/cie.js/maintainability"><img src="https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability" alt="Maintainability"></a> <a href="https://codecov.io/gh/redpeacock78/cie.js"><img src="https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V" alt="codecov"></a><br>Node.js wrapper around <a href="https://github.com/redpeacock78/CIE.sh"><code>CIE.sh</code></a>.</p>
+				<a href="#📃-about" id="📃-about" style="color: inherit; text-decoration: none;">
+					<h2>📃 About</h2>
+				</a>
+				<p>This package calculates the color difference between two colors using the color difference formula in LAB Delta E established by the Commission internationale de l&#39;éclairage (CIE).<br>It also uses Bash Script for the main logic, so the following is required to run it.</p>
+				<a href="#📦-dependencies" id="📦-dependencies" style="color: inherit; text-decoration: none;">
+					<h3>📦 Dependencies</h3>
+				</a>
+				<ul>
+					<li>bash &gt;= 5.0</li>
+					<li>grep</li>
+					<li>awk</li>
+					<li>sed</li>
+					<li>cat</li>
+					<li>bc</li>
+				</ul>
+				<a href="#🛠-usage" id="🛠-usage" style="color: inherit; text-decoration: none;">
+					<h2>🛠 Usage</h2>
+				</a>
+				<a href="#🖥-cli" id="🖥-cli" style="color: inherit; text-decoration: none;">
+					<h3>🖥 CLI</h3>
+				</a>
+				<pre><code class="language-console">$ yarn global add cli.js  # npm install -g cli.js
+
+$ cie-js -h
+Usage: cie-js [options] [command]
+
+Derives the color difference using the method defined by LAB Delta E (CIE76, CIE94, CIEDE2000).
+
+Options:
+  -v, --version   Output the version number
+  -h, --help      display help for command
+
+Commands:
+  dE76            Use the CIE 1976 color difference formula.
+  dE94            Use the CIE 1994 color difference formula.
+  dE00            Use the CIEDE2000 color difference formula.
+  help [command]  display help for command
+
+TL;DR
+  $ cie-js dE76 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
+  $ cie-js dE94 -g 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
+  $ cie-js dE00 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
+
+$ cie-js dE76 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
+4.0011
+$ cie-js dE94 -g 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
+1.3950
+</code></pre>
+				<a href="#📄-javascript" id="📄-javascript" style="color: inherit; text-decoration: none;">
+					<h3>📄 Javascript</h3>
+				</a>
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #0000FF">*</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;cie.js&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_1</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000"> };</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_2</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">40.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000"> };</span>
+<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000">.</span><span style="color: #795E26">dE76</span><span style="color: #000000">(</span><span style="color: #001080">color_1</span><span style="color: #000000">, </span><span style="color: #001080">color_2</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">result</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">result</span><span style="color: #000000">);</span>
+<span style="color: #000000">  })</span>
+<span style="color: #000000">})();</span>
+<span style="color: #008000">// =&gt; 10.0000</span>
+</code></pre>
+				<a href="#🔗-api" id="🔗-api" style="color: inherit; text-decoration: none;">
+					<h2>🔗 API</h2>
+				</a>
+				<a href="#1976-formula" id="1976-formula" style="color: inherit; text-decoration: none;">
+					<h3>1976 Formula</h3>
+				</a>
+				<p>The CIE 1976 color difference formula is the first color difference formula defined, and is calculated as the Euclidean distance in CIELAB coordinates.</p>
+				<ul>
+					<li><code>lab.dE76(color_1: {[key: string]: number}, color_2: {[key: string]: number}): Promise&lt;string&gt;</code> <pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_1</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">2.6772</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">79.7751</span><span style="color: #000000"> };</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_2</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">82.7485</span><span style="color: #000000"> };</span>
+<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000">.</span><span style="color: #795E26">dE76</span><span style="color: #000000">(</span><span style="color: #001080">color_1</span><span style="color: #000000">, </span><span style="color: #001080">color_2</span><span style="color: #000000">));</span>
+<span style="color: #000000">})();</span>
+<span style="color: #008000">// =&gt; 4.0011</span>
+</code></pre>
+						<a href="#1994-formula" id="1994-formula" style="color: inherit; text-decoration: none;">
+							<h3>1994 Formula</h3>
+						</a>
+					ΔE(1994) is calculated from the difference in brightness, saturation, and hue in the L*C*h* color space, which is calculated from the L*a*b* color space. It also introduces a weighting factor for specific applications, derived from the allowable values for automotive paints.</li>
+					<li><code>lab.dE94.textile(color_1: {[key: string]: number}, color_2: {[key: string]: number}): Promise&lt;string&gt;</code><br><img src="https://render.githubusercontent.com/render/math?math=Weighting%20Factor%20(k_L=1,%20K_1=0.045,%20K_2=0.015)" alt=""><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_1</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">2.6772</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">79.7751</span><span style="color: #000000"> };</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_2</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">82.7485</span><span style="color: #000000"> };</span>
+<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000">.</span><span style="color: #001080">dE94</span><span style="color: #000000">.</span><span style="color: #795E26">textile</span><span style="color: #000000">(</span><span style="color: #001080">color_1</span><span style="color: #000000">, </span><span style="color: #001080">color_2</span><span style="color: #000000">));</span>
+<span style="color: #000000">})();</span>
+<span style="color: #008000">// =&gt; 1.4230</span>
+</code></pre>
+					</li>
+					<li><code>lab.dE94.graphicArts(color_1: {[key: string]: number}, color_2: {[key: string]: number}): Promise&lt;string&gt;</code><br><img src="https://render.githubusercontent.com/render/math?math=Weighting%20Factor%20(k_L=2,%20K_1=0.048,%20K_2=0.014)" alt=""><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_1</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">2.6772</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">79.7751</span><span style="color: #000000"> };</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_2</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">82.7485</span><span style="color: #000000"> };</span>
+<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000">.</span><span style="color: #001080">dE94</span><span style="color: #000000">.</span><span style="color: #795E26">graphicArts</span><span style="color: #000000">(</span><span style="color: #001080">color_1</span><span style="color: #000000">, </span><span style="color: #001080">color_2</span><span style="color: #000000">));</span>
+<span style="color: #000000">})();</span>
+<span style="color: #008000">// =&gt; 1.3950</span>
+</code></pre>
+						<a href="#2000-formula" id="2000-formula" style="color: inherit; text-decoration: none;">
+							<h3>2000 Formula</h3>
+						</a>
+					Since the CIE 1994 definition did not sufficiently ensure perceived uniformity, the CIE revised the definition and established the standard.</li>
+					<li><code>lab.dE00(color_1: {[key: string]: number}, color_2: {[key: string]: number}): Promise&lt;string&gt;</code><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_1</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">2.6772</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">79.7751</span><span style="color: #000000"> };</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">color_2</span><span style="color: #000000"> = { </span><span style="color: #001080">L:</span><span style="color: #000000"> </span><span style="color: #098658">50.0000</span><span style="color: #000000">, </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #098658">0.0000</span><span style="color: #000000">, </span><span style="color: #001080">b:</span><span style="color: #000000"> -</span><span style="color: #098658">82.7485</span><span style="color: #000000"> };</span>
+<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">lab</span><span style="color: #000000">.</span><span style="color: #795E26">dE00</span><span style="color: #000000">(</span><span style="color: #001080">color_1</span><span style="color: #000000">, </span><span style="color: #001080">color_2</span><span style="color: #000000">));</span>
+<span style="color: #000000">})();</span>
+<span style="color: #008000">// =&gt; 2.0425</span>
+</code></pre>
+						<a href="#🎉-acknowledgements" id="🎉-acknowledgements" style="color: inherit; text-decoration: none;">
+							<h2>🎉 Acknowledgements</h2>
+						</a>
+					</li>
+					<li><a href="https://qiita.com/hachisukansw/items/3488df50b7082d4fcffb">JavaScript で CIE94 色差計算 - Qiita</a></li>
+					<li><a href="https://qiita.com/hachisukansw/items/860f061a2ab7a4f2d06f">JavaScript で CIEDE2000 色差計算 - Qiita</a></li>
+					<li><a href="https://qiita.com/shinido/items/2904fa1e9a6c78650b93">色の距離(色差)の計算方法 ‒ Qiita</a></li>
+					<li><a href="https://ja.wikipedia.org/wiki/%E8%89%B2%E5%B7%AE">色差 - Wikipedia</a></li>
+					<li><a href="http://www.brucelindbloom.com/index.html?ColorDifferenceCalc.html">Color Difference Calculator</a></li>
+					<li><a href="http://www2.ece.rochester.edu/~gsharma/ciede2000/">Gaurav Sharma</a></li>
+					<li><a href="https://plkl.sakura.ne.jp/?page_id=397">色差計算器 (CIE76, CIE2000) ‒ でじたる小屋</a></li>
+				</ul>
+				<a href="#🥝-lisence" id="🥝-lisence" style="color: inherit; text-decoration: none;">
+					<h2>🥝 Lisence</h2>
+				</a>
+				<p><a href="https://github.com/redpeacock78/cie.js/blob/master/LICENSE">MIT</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_de00.html" class="tsd-kind-icon">_d<wbr>E00</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_de76.html" class="tsd-kind-icon">_d<wbr>E76</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_de94.html" class="tsd-kind-icon">_d<wbr>E94</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_graphicarts.html" class="tsd-kind-icon">_graphic<wbr>Arts</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_lab.html" class="tsd-kind-icon">_lab</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/_textile.html" class="tsd-kind-icon">_textile</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/color.html" class="tsd-kind-icon">color</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
