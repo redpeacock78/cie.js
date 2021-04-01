@@ -1,8 +1,8 @@
 /**
  * Calculates the color difference between two colors using the color difference formula in LAB Delta E established by the Commission internationale de l'éclairage (CIE).
- * @method dE76
- * @method dE94
- * @method dE00
+ * @property dE76
+ * @property dE94
+ * @property dE00
  */
 export interface _lab {
   /**
@@ -13,10 +13,10 @@ export interface _lab {
    */
   dE76: _dE76;
   /**
-   * ΔE(1994) is calculated from the difference in brightness, saturation, and hue in the L*C*h* color space, which is calculated from the L*a*b* color space.
+   * ΔE(1994) is calculated from the difference in brightness, saturation, and hue in the L\*C\*h\* color space, which is calculated from the L\*a\*b\* color space.
    * It also introduces a weighting factor for specific applications, derived from the allowable values for automotive paints.
-   * @method textile
-   * @method graphicArts
+   * @property textile
+   * @property graphicArts
    */
   dE94: _dE94;
   /**
@@ -51,7 +51,7 @@ interface _dE76 {
   (color_1: color, color_2: color): Promise<string>;
 }
 /**
- * ΔE(1994) is calculated from the difference in brightness, saturation, and hue in the L*C*h* color space, which is calculated from the L*a*b* color space.
+ * ΔE(1994) is calculated from the difference in brightness, saturation, and hue in the L\*C\*h\* color space, which is calculated from the L\*a\*b\* color space.
  * It also introduces a weighting factor for specific applications, derived from the allowable values for automotive paints.
  */
 interface _dE94 {
