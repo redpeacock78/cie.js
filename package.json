@@ -1,6 +1,6 @@
 {
   "name": "cie.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
@@ -51,7 +51,7 @@
     "test:coverage": "jest --coverage",
     "build": "yarn lint-fix && tsc -p tsconfig.json",
     "release": "yarn add -D can-npm-publish && yarn install --frozen-lockfile && ./release.sh && yarn remove can-npm-publish",
-    "docs": "yarn run typedoc --includeVersion --defaultCategory --out docs/ @types/main.d.ts --tsconfig tsconfig.json",
+    "docs": "yarn run typedoc --includeVersion --out docs/ @types/main.d.ts --tsconfig tsconfig.json",
     "prepublishOnly": "yarn build"
   }
 }
