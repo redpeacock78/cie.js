@@ -1,6 +1,25 @@
 # `cie.js`
-![GitHub](https://img.shields.io/github/license/redpeacock78/cie.js) ![npm](https://img.shields.io/npm/v/cie.js) ![npm type definitions](https://img.shields.io/npm/types/cie.js) [![Npm Publish](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability)](https://codeclimate.com/github/redpeacock78/cie.js/maintainability) [![codecov](https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V)](https://codecov.io/gh/redpeacock78/cie.js)  
+[![GitHub](https://img.shields.io/github/license/redpeacock78/cie.js)](https://github.com/redpeacock78/cie.js/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/cie.js)](https://www.npmjs.com/package/cie.js) ![npm type definitions](https://img.shields.io/npm/types/cie.js) [![Document](https://camo.githubusercontent.com/65a196552ad2d9701824a4097bb102ce2b4a389febf6bbe8a43a86f0479760f8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f63756d656e742d656e5f5f55532d627269676874677265656e2e737667)](https://cie-js.tk/)  
+[![Npm Publish](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability)](https://codeclimate.com/github/redpeacock78/cie.js/maintainability) [![codecov](https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V)](https://codecov.io/gh/redpeacock78/cie.js) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)  
 Node.js wrapper around [`CIE.sh`](https://github.com/redpeacock78/CIE.sh).
+
+## 📕 TOC
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [📃 About](#-about)
+  - [📦 Dependencies](#-dependencies)
+- [🛠 Usage](#%F0%9F%9B%A0-usage)
+  - [🖥 CLI](#%F0%9F%96%A5-cli)
+  - [📄 Javascript](#-javascript)
+- [🔗 API](#-api)
+  - [1976 Formula](#1976-formula)
+  - [1994 Formula](#1994-formula)
+  - [2000 Formula](#2000-formula)
+- [🎉 Acknowledgements](#-acknowledgements)
+- [🥝 Lisence](#-lisence)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 📃 About
 This package calculates the color difference between two colors using the color difference formula in LAB Delta E established by the Commission internationale de l'éclairage (CIE).  
@@ -102,9 +121,10 @@ Since the CIE 1994 definition did not sufficiently ensure perceived uniformity, 
     })();
     // => 2.0425
     ```
+
 ## 🎉 Acknowledgements
-  - [JavaScript で CIE94 色差計算 - Qiita](https://qiita.com/hachisukansw/items/3488df50b7082d4fcffb)
-  - [JavaScript で CIEDE2000 色差計算 - Qiita](https://qiita.com/hachisukansw/items/860f061a2ab7a4f2d06f)
+  - [JavaScriptでCIE94色差計算 - Qiita](https://qiita.com/hachisukansw/items/3488df50b7082d4fcffb)
+  - [JavaScriptでCIEDE2000色差計算 - Qiita](https://qiita.com/hachisukansw/items/860f061a2ab7a4f2d06f)
   - [色の距離(色差)の計算方法 ‒ Qiita](https://qiita.com/shinido/items/2904fa1e9a6c78650b93)
   - [色差 - Wikipedia](https://ja.wikipedia.org/wiki/%E8%89%B2%E5%B7%AE)
   - [Color Difference Calculator](http://www.brucelindbloom.com/index.html?ColorDifferenceCalc.html)
