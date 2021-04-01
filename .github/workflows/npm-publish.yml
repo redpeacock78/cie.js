@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
-      - name: CIE.sh Check
+      - name: CIE.sh version check
         run: ./libs/CIE.sh/bin/lab -v 
       - name: Check version and Add Tag
         run: yarn release
