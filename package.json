@@ -1,6 +1,6 @@
 {
   "name": "cie.js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
@@ -38,6 +38,7 @@
     "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",
     "typedoc": "^0.20.34",
+    "typedoc-plugin-cname": "^1.0.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
@@ -51,7 +52,7 @@
     "test:coverage": "jest --coverage",
     "build": "yarn lint-fix && tsc -p tsconfig.json",
     "release": "yarn add -D can-npm-publish && yarn install --frozen-lockfile && ./release.sh && yarn remove can-npm-publish",
-    "docs": "yarn run typedoc --includeVersion --out docs/ @types/main.d.ts --tsconfig tsconfig.json",
+    "docs": "typedoc --includeVersion --out docs/ @types/main.d.ts --tsconfig tsconfig.json --plugin typedoc-plugin-cname --cname cie-js.tk",
     "prepublishOnly": "yarn build"
   }
 }
