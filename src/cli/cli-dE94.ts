@@ -35,12 +35,14 @@ const options = command.opts();
         .then((result): void => {
           console.log(result);
         })
-        .catch((): void => {
+        .catch((error: unknown): void => {
+          const message: string = error
+            .toString()
+            .replace(/^Error: /, "")
+            .replace(/^ .*\n/, "")
+            .replace(/lab/g, "cie-js");
           process.on("exit", (): void => {
-            console.error("cie-js: Sorry. An error has occurred :_(");
-            console.error(
-              "Refer 'cie-js -h' or 'cie-js --help' for how to use the command."
-            );
+            console.error(message);
             process.exit(1);
           });
         });
@@ -70,12 +72,14 @@ const options = command.opts();
         .then((result: string): void => {
           console.log(result);
         })
-        .catch((): void => {
+        .catch((error: unknown): void => {
+          const message: string = error
+            .toString()
+            .replace(/^Error: /, "")
+            .replace(/^ .*\n/, "")
+            .replace(/lab/g, "cie-js");
           process.on("exit", (): void => {
-            console.error("cie-js: Sorry. An error has occurred :_(");
-            console.error(
-              "Refer 'cie-js -h' or 'cie-js --help' for how to use the command."
-            );
+            console.error(message);
             process.exit(1);
           });
         });
