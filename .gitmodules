@@ -1,3 +1,4 @@
 [submodule "libs/CIE.sh"]
         path = libs/CIE.sh
         url = https://github.com/redpeacock78/CIE.sh
+        ignore = all
