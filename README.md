@@ -64,7 +64,7 @@ $ cie-js dE94 -g 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 ```
 ### 📄 Javascript
 ```javascript
-import * as lab from 'cie.js';
+import * as lab from 'cie.js'; // const lab = require('cie.js');
 
 const color_1 = { L: 50.0000, a: 50.0000, b: 0.0000 };
 const color_2 = { L: 40.0000, a: 50.0000, b: 0.0000 };
