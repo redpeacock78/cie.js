@@ -28,12 +28,14 @@ const args: string[] = process.argv.slice(2);
         .then((result: string): void => {
           console.log(result);
         })
-        .catch((): void => {
+        .catch((error: unknown): void => {
+          const message: string = error
+            .toString()
+            .replace(/^Error: /, "")
+            .replace(/^ .*\n/, "")
+            .replace(/lab/g, "cie-js");
           process.on("exit", (): void => {
-            console.error("cie-js: Sorry. An error has occurred :_(");
-            console.error(
-              "Refer 'cie-js -h' or 'cie-js --help' for how to use the command."
-            );
+            console.error(message);
             process.exit(1);
           });
         });
