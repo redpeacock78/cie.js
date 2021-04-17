@@ -1,6 +1,7 @@
 # `cie.js`
 [![GitHub](https://img.shields.io/github/license/redpeacock78/cie.js)](https://github.com/redpeacock78/cie.js/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/cie.js)](https://www.npmjs.com/package/cie.js) ![npm type definitions](https://img.shields.io/npm/types/cie.js) [![Document](https://camo.githubusercontent.com/65a196552ad2d9701824a4097bb102ce2b4a389febf6bbe8a43a86f0479760f8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f63756d656e742d656e5f5f55532d627269676874677265656e2e737667)](https://cie-js.tk/)  
-[![Npm Publish](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability)](https://codeclimate.com/github/redpeacock78/cie.js/maintainability) [![codecov](https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V)](https://codecov.io/gh/redpeacock78/cie.js) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)  
+[![Npm Publish](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/redpeacock78/cie.js/actions/workflows/npm-publish.yml) [![Docker Publish](https://github.com/redpeacock78/cie.js/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/redpeacock78/cie.js/actions/workflows/docker-publish.yml)  
+[![Maintainability](https://api.codeclimate.com/v1/badges/7a9e89fdf31fe3a5f41d/maintainability)](https://codeclimate.com/github/redpeacock78/cie.js/maintainability) [![codecov](https://codecov.io/gh/redpeacock78/cie.js/branch/master/graph/badge.svg?token=BP3CKGDO0V)](https://codecov.io/gh/redpeacock78/cie.js) [![DeepScan grade](https://deepscan.io/api/teams/13696/projects/16712/branches/363833/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=13696&pid=16712&bid=363833) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)  
 Node.js wrapper around [`CIE.sh`](https://github.com/redpeacock78/CIE.sh).
 
 
@@ -70,20 +71,26 @@ $ cie-js dE94 -g 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 ```
 
 ### 🐳 CLI by Docker
-```console
+```bash
 # Install
-$ docker pull redpeacock78/cie.js
+$ docker pull ghcr.io/redpeacock78/cie.js
 
 # Write the following function in .bashrc etc.
 cie-js() {
-  [ -t 0 ] && T="t" || T=""
-  docker run -i$T --rm ghcr.io/redpeacock78/cie.js cie-js "${@}"
+  [[ -t 0 ]] && T="t" || T=""
+  docker run -i"${T}" --rm ghcr.io/redpeacock78/cie.js:latest "${@}"
 }
 
 # Run!
 $ source ~/.bashrc
 $ cie-js dE76 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 4.0011
+
+# Update
+$ docker pull ghcr.io/redpeacock78/exutils && docker rmi -f $(docker images | grep ghcr.io/redpeacock78/exutils | grep none | awk '{print $3}')
+
+# Uninstall
+$ docker rmi -f $(docker images | grep ghcr.io/redpeacock78/exutils | grep latest | awk '{print $3}')
 ```
 
 ### 📄 Javascript
