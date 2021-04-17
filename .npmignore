@@ -1,10 +1,12 @@
 .git*
 .npm*
+.docker*
 .eslint*
 .github/
 src/
 test/
 coverage/
+Dockerfile
 release.sh
 jest.config.js
 tsconfig.json
