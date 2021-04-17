@@ -43,3 +43,9 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Start Docker image build
+        uses: juztcode/repo-ditpatch-action@v1
+        with:
+          event-type: docker_build
+          token: ${{ secrets.DOCKER_PUBLISH }}
+          repository: redpeacock78/cie.js
