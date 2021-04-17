@@ -28,6 +28,9 @@ command
     console.log(
       "  $ cie-js dE00 50.0000 2.6772 \\ -79.7751 50.0000 0.0000 \\ -82.7485"
     );
+    console.log(
+      "  $ echo 50.0000,2.6772,-79.7751,50.0000,0.0000,-82.7485 | cie-js dE94 -t"
+    );
   })
   .version(
     `cie-js ${packageJson.version}
