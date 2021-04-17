@@ -69,6 +69,24 @@ $ cie-js dE76 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 $ cie-js dE94 -g 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 1.3950
 ```
+```bash
+# Read from file
+$ cat example.txt
+50.0000 2.6772 -79.7751 50.0000 0.0000 -82.7485
+50.0000 3.1571 -77.2803 50.0000 0.0000 -82.7485
+50.0000 2.8361 -74.0200 50.0000 0.0000 -82.7485
+50.0000 -1.3802 -84.2814 50.0000 0.0000 -82.7485
+50.0000 -1.1848 -84.8006 50.0000 0.0000 -82.7485
+50.0000 -0.9009 -85.5211 50.0000 0.0000 -82.7485
+
+$ cat example.txt | cie-js dE76
+4.0011
+6.3142
+9.1777
+2.0627
+2.3696
+2.9153
+```
 
 ### 🐳 CLI by Docker
 ```bash
@@ -87,10 +105,10 @@ $ cie-js dE76 50.0000 2.6772 \ -79.7751 50.0000 0.0000 \ -82.7485
 4.0011
 
 # Update
-$ docker pull ghcr.io/redpeacock78/exutils && docker rmi -f $(docker images | grep ghcr.io/redpeacock78/exutils | grep none | awk '{print $3}')
+$ docker pull ghcr.io/redpeacock78/cie.js && docker rmi -f $(docker images | grep ghcr.io/redpeacock78/cie.js | grep none | awk '{print $3}')
 
 # Uninstall
-$ docker rmi -f $(docker images | grep ghcr.io/redpeacock78/exutils | grep latest | awk '{print $3}')
+$ docker rmi -f $(docker images | grep ghcr.io/redpeacock78/cie.js | grep latest | awk '{print $3}')
 ```
 
 ### 📄 Javascript
