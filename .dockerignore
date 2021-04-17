@@ -1,0 +1,12 @@
+.git*/
+dist/
+test/
+node_modules/
+libs/CIE.sh/.git*/
+libs/CIE.sh/test/
+libs/CIE.sh/.git*
+libs/CIE.sh/*.sh
+.git*
+.*ignore
+*.sh
+*.config.js
