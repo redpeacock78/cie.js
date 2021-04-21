@@ -1,6 +1,7 @@
 name: check npm
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '00 03 * * *'
 
@@ -21,6 +22,8 @@ jobs:
           npm i -g hothouse
           git config user.name "hothouse"
           git config user.email "hothouse@example.com"
+      - name: Update version numbber
+        run: yarn version --patch
       - name: run
         run: |
           hothouse --no-per-package -t ${{ secrets.HOTHOUSE_TOKEN }}
