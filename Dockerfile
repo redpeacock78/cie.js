@@ -10,6 +10,11 @@ RUN apk --update --no-cache add bash nodejs yarn bc && \
     cd src && \
     yarn install --frozen-lockfile && \
     yarn build && \
-    yarn link
+    yarn link && \
+    sed -n "$(expr $(sed -n '/devDependencies/=' <package.json) + 1),$(expr $(sed -n '/dependencies/=' <package.json) - 2)p" <package.json \
+    | awk '{gsub(/"|:/, "", $1);print $1}' \
+    | xargs yarn remove && \
+    apk del yarn && \
+    rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["cie-js"]
