@@ -22,7 +22,7 @@ jobs:
           npm i -g hothouse
           git config user.name "hothouse"
           git config user.email "hothouse@example.com"
-      - name: Update version numbber
+      - name: Update version number
         run: yarn version --patch
       - name: run
         run: |
