@@ -1,0 +1,43 @@
+name: Pull request test
+on:
+  pull_request_target
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SUB_MODULE_TOKEN }}
+          submodules: true
+      - name: Update submodule
+        run: git submodule update --remote ./libs/
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: CIE.sh version check
+        run: ./libs/CIE.sh/bin/lab -v 
+      - name: Run Test
+        run: yarn test
+  label:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Labeling of "automerge"
+      uses: actions/labeler@v2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Wait 60 seconds
+      run: sleep 60
+  start-automerge:
+    needs: [label]
+    runs-on: ubuntu-latest
+    - name: Start automerge
+        uses: juztcode/repo-ditpatch-action@v1
+        with:
+          event-type: automerge
+          token: ${{ secrets.AUTOMERGE_TOKEN }}
+          repository: redpeacock78/cie.js
