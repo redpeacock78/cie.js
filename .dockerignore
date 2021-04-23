@@ -3,9 +3,11 @@ dist/
 test/
 node_modules/
 libs/CIE.sh/.git*/
+libs/CIE.sh/bin/
 libs/CIE.sh/test/
 libs/CIE.sh/.git*
 libs/CIE.sh/*.sh
+libs/CIE.sh/.codeclimate.yml
 .git*
 .*ignore
 *.sh
