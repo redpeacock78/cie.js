@@ -10,3 +10,6 @@ Dockerfile
 release.sh
 jest.config.js
 tsconfig.json
+libs/CIE.sh/test/
+libs/CIE.sh/*.sh
+libs/CIE.sh/.codeclimate.yml
