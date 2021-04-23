@@ -1,5 +1,7 @@
 name: automerge
-on: pull_request_target
+on:
+  repository_dispatch:
+    types: [automerge]
 
 jobs:
   automerge:
