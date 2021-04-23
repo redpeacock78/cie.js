@@ -35,6 +35,7 @@ jobs:
   start-automerge:
     needs: [label]
     runs-on: ubuntu-latest
+    steps:
     - name: Start automerge
         uses: juztcode/repo-ditpatch-action@v1
         with:
