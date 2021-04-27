@@ -37,8 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Start automerge
-        uses: juztcode/repo-ditpatch-action@v1
-        with:
-          event-type: automerge
-          token: ${{ secrets.AUTOMERGE_TOKEN }}
-          repository: redpeacock78/cie.js
+      uses: juztcode/repo-ditpatch-action@v1
+      with:
+        event-type: automerge
+        token: ${{ secrets.AUTOMERGE_TOKEN }}
+        repository: redpeacock78/cie.js
