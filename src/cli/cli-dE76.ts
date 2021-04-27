@@ -45,8 +45,8 @@ command
           .then((result: string): void => {
             console.log(result);
           })
-          .catch((): void => {
-            ab_end();
+          .catch((e: Error): void => {
+            ab_end(e);
           });
       } else {
         ab_end();
