@@ -1,6 +1,6 @@
 {
   "name": "cie.js",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
