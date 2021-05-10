@@ -5,16 +5,7 @@ LABEL org.opencontainers.image.documentation="Calculates the color difference be
 LABEL org.opencontainers.image.url="https://github.com/redpeacock78/cie.js"
 LABEL org.opencontainers.image.source="https://github.com/redpeacock78/cie.js"
 
-ADD . /src
 RUN apk --update --no-cache add bash nodejs yarn bc && \
-    cd src && \
-    yarn install --frozen-lockfile && \
-    yarn build && \
-    yarn link && \
-    sed -n "$(expr $(sed -n '/devDependencies/=' <package.json) + 1),$(expr $(sed -n '/dependencies/=' <package.json) - 2)p" <package.json \
-    | awk '{gsub(/"|:/, "", $1);print $1}' \
-    | xargs yarn remove && \
-    apk del yarn && \
-    rm -rf /var/cache/apk/*
+    yarn global add cie.js
 
 ENTRYPOINT ["cie-js"]
