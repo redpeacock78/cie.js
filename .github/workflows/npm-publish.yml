@@ -48,8 +48,8 @@ jobs:
         run: |
           git pull
           body=$(git log --pretty=format:"%s" $(git tag --sort=-v:refname -l '[0-9]*.[0-9]*.[0-9]*'|tr "\n" " "|sed "s/ /.../;s/ $//")|cat -)
-          tag_name=$(git describe)
-          release_name=$(git describe)
+          tag_name=$(git tag --sort=-v:refname -l '[0-9].[0-9].[0-9]*'|head -n1)
+          release_name=$(git tag --sort=-v:refname -l '[0-9].[0-9].[0-9]*'|head -n1)
           echo "::set-output name=tag_name::${tag_name}"
           echo "::set-output name=release_name::${release_name}"
       - name: Create Release
