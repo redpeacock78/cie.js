@@ -9,27 +9,27 @@ Node.js wrapper around [`CIE.sh`](https://github.com/redpeacock78/CIE.sh).
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [📃 About](#%F0%9F%93%83-about)
-    - [📦 Dependencies](#%F0%9F%93%A6-dependencies)
-- [🛠 Usage](#%F0%9F%9B%A0-usage)
-    - [🖥 CLI](#%F0%9F%96%A5-cli)
-    - [🐳 CLI by Docker](#%F0%9F%90%B3-cli-by-docker)
-    - [📄 Javascript](#%F0%9F%93%84-javascript)
-- [🔗 API](#%F0%9F%94%97-api)
+- [📃  About](#--about)
+    - [📦  Dependencies](#--dependencies)
+- [🛠  Usage](#--usage)
+    - [🖥  CLI](#--cli)
+    - [🐳  CLI by Docker](#--cli-by-docker)
+    - [📄  Javascript](#--javascript)
+- [🔗  API](#--api)
     - [1976 Formula](#1976-formula)
     - [1994 Formula](#1994-formula)
     - [2000 Formula](#2000-formula)
-- [🎉 Acknowledgements](#%F0%9F%8E%89-acknowledgements)
-- [🥝 Lisence](#%F0%9F%A5%9D-lisence)
+- [🎉  Acknowledgements](#--acknowledgements)
+- [🥝  Lisence](#--lisence)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-## 📃 About
+## 📃  About
 This package calculates the color difference between two colors using the color difference formula in LAB Delta E established by the Commission internationale de l'éclairage (CIE).  
 It also uses Bash Script for the main logic, so the following is required to run it.
 
-### 📦 Dependencies
+### 📦  Dependencies
   - bash >= 5.0
   - grep
   - awk
@@ -37,9 +37,9 @@ It also uses Bash Script for the main logic, so the following is required to run
   - cat
   - bc
 
-## 🛠 Usage
+## 🛠  Usage
 
-### 🖥 CLI
+### 🖥  CLI
 ```console
 $ yarn global add cli.js  # npm install -g cli.js
 
@@ -88,7 +88,7 @@ $ cat example.txt | cie-js dE76
 2.9153
 ```
 
-### 🐳 CLI by Docker
+### 🐳  CLI by Docker
 ```bash
 # Install
 $ docker pull ghcr.io/redpeacock78/cie.js
@@ -111,7 +111,7 @@ $ docker pull ghcr.io/redpeacock78/cie.js && docker rmi -f $(docker images | gre
 $ docker rmi -f $(docker images | grep ghcr.io/redpeacock78/cie.js | grep latest | awk '{print $3}')
 ```
 
-### 📄 Javascript
+### 📄  Javascript
 ```javascript
 import * as lab from 'cie.js'; // const lab = require('cie.js');
 
@@ -126,7 +126,7 @@ const color_2 = { L: 40.0000, a: 50.0000, b: 0.0000 };
 ```
 
 
-## 🔗 API
+## 🔗  API
 
 ### 1976 Formula
 The CIE 1976 color difference formula is the first color difference formula defined, and is calculated as the Euclidean distance in CIELAB coordinates.
@@ -176,7 +176,7 @@ Since the CIE 1994 definition did not sufficiently ensure perceived uniformity, 
     ```
 
 
-## 🎉 Acknowledgements
+## 🎉  Acknowledgements
   - [JavaScriptでCIE94色差計算 - Qiita](https://qiita.com/hachisukansw/items/3488df50b7082d4fcffb)
   - [JavaScriptでCIEDE2000色差計算 - Qiita](https://qiita.com/hachisukansw/items/860f061a2ab7a4f2d06f)
   - [色の距離(色差)の計算方法 ‒ Qiita](https://qiita.com/shinido/items/2904fa1e9a6c78650b93)
@@ -185,5 +185,5 @@ Since the CIE 1994 definition did not sufficiently ensure perceived uniformity, 
   - [Gaurav Sharma](http://www2.ece.rochester.edu/~gsharma/ciede2000/)
   - [色差計算器 (CIE76, CIE2000) ‒ でじたる小屋](https://plkl.sakura.ne.jp/?page_id=397)
 
-## 🥝 Lisence
+## 🥝  Lisence
 [MIT](https://github.com/redpeacock78/cie.js/blob/master/LICENSE)
