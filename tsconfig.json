@@ -1,12 +1,10 @@
 {
-  "files": [
-    "./src/main.ts",
-    "./src/libs/bin.ts",
-    "./src/libs/error.ts",
-    "./src/cli/cli.ts",
-    "./src/cli/cli-dE76.ts",
-    "./src/cli/cli-dE94.ts",
-    "./src/cli/cli-dE00.ts"
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "test/**/*"
   ],
   "compilerOptions": {
     "outDir": "dist/",
