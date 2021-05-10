@@ -1,3 +1,8 @@
+/*
+Copyright (c) 2021 redpeacock78
+This software is released under the MIT License, see LICENSE.
+*/
+
 import * as err from "./libs/error";
 import * as bin_path from "./libs/bin";
 import * as spawn from "spawn-promise";
