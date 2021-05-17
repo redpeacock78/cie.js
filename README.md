@@ -41,7 +41,7 @@ It also uses Bash Script for the main logic, so the following is required to run
 
 ### 🖥  CLI
 ```console
-$ yarn global add cli.js  # npm install -g cli.js
+$ yarn global add cie.js  # npm install -g cie.js
 
 $ cie-js -h
 Usage: cie-js [options] [command]
