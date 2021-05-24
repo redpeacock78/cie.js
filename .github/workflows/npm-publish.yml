@@ -60,7 +60,8 @@ jobs:
         with:
           tag_name: ${{ steps.release_data.outputs.tag_name }}
           release_name: ${{ steps.release_data.outputs.release_name }}
-          body: ${{ steps.release_data.outputs.body }}
+          body: |
+            "${{ steps.release_data.outputs.body }}"
           draft: false
           prerelease: false
       - name: Start Document Publish
