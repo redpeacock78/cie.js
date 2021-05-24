@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
       - name: CIE.sh version check
         run: ./libs/CIE.sh/bin/lab -v 
       - name: Run Test
