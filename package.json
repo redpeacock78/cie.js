@@ -1,6 +1,6 @@
 {
   "name": "cie.js",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "description": "Node wrapper around CIE.sh.",
@@ -27,8 +27,8 @@
   "devDependencies": {
     "@types/jest": "^27.0.0",
     "@types/node": "^16.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^4.0.0",
